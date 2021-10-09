@@ -1,0 +1,20 @@
+---
+- hosts: all
+  roles:
+    - install-docker
+
+- hosts: registrar
+  roles:
+    - deploy-registrar
+
+- hosts: ballotbox
+  roles:
+    - deploy-ballotbox
+
+- hosts: ballotserver
+  roles:
+    - deploy-ballotserver
+
+- hosts: resultserver
+  roles:
+    - deploy-resultserver

@@ -1,0 +1,4 @@
+---
+ansible_user: "<admin-user>"
+ansible_password: "<admin-password>"
+ansible_become: yes
