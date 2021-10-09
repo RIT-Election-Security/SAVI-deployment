@@ -1,0 +1,50 @@
+---
+- name: Install docker repo dependencies
+  ansible.builtin.apt:
+    name: "{{ item }}"
+  loop:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+    - python3-pip
+
+- name: Add docker repository gpg key
+  ansible.builtin.apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+- name: Add docker apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ hostvars[inventory_hostname].ansible_facts.lsb.codename }} stable"
+
+- name: Install docker packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+  loop:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+
+- name: Install docker-compose
+  ansible.builtin.pip:
+    name: docker-compose
+  when: install_docker_compose
+
+- name: Add ansible user to docker group
+  ansible.builtin.user:
+    user: "{{ ansible_user }}"
+    groups: docker
+    append: yes
+  when: add_ansible_user_to_docker_group
+  register: ansible_user_added_to_docker_group
+
+- name: Add users to docker group
+  ansible.builtin.user:
+    user: "{{ item }}"
+    groups: docker
+    append: yes
+  loop: "{{ docker_group_users }}"
+
+- name: Refresh ansible connection to update groups for "{{ ansible_user }}"
+  ansible.builtin.meta: reset_connection

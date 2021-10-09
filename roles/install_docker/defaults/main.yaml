@@ -1,0 +1,4 @@
+---
+install_docker_compose: no
+add_ansible_user_to_docker_group: no
+docker_group_users: []
