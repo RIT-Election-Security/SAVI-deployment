@@ -1,0 +1,6 @@
+[Unit]
+Description=Rebuild and restart {{ compose_service_name }} containers
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl reload-or-restart {{ compose_service_name }}.service

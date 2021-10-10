@@ -1,0 +1,6 @@
+---
+- name: Prerequisite service setup
+  ansible.builtin.include_tasks: prereqs.yaml
+
+- name: Install service
+  ansible.builtin.include_tasks: install_service.yaml

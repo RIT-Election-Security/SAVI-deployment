@@ -1,0 +1,19 @@
+[Unit]
+Description={{ compose_service_description }}
+After=docker.service network-online.target
+Requires=docker.service network-online.target
+
+[Service]
+WorkingDirectory={{ compose_service_directory }}
+{% if use_compose_service_user %}
+User={{ compose_service_name }}
+Group={{ compose_service_name }}
+{% endif %}
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/docker-compose up -d
+ExecStop=/usr/local/bin/docker-compose stop
+ExecReload=/usr/local/bin/docker-compose up --build -d
+
+[Install]
+WantedBy=multi-user.target

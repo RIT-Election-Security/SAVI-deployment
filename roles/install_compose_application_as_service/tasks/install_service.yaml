@@ -1,0 +1,20 @@
+---
+- name: Template service file
+  ansible.builtin.template:
+    src: template.service.j2
+    dest: "/etc/systemd/system/{{ compose_service_name }}.service"
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - Reload systemd services
+
+- name: Template service reload file
+  ansible.builtin.template:
+    src: template-reload.service.j2
+    dest: "/etc/systemd/system/{{ compose_service_name }}-reload.service"
+    mode: 0644
+    owner: root
+    group: root
+  notify:
+    - Reload systemd services

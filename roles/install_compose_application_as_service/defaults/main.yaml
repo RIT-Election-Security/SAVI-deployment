@@ -1,0 +1,3 @@
+---
+compose_service_enabled: no
+use_compose_service_user: no
