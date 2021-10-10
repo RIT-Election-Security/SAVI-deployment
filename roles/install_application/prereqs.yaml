@@ -1,0 +1,4 @@
+---
+- name: Ensure git installed
+  ansible.builtin.package:
+    name: git
