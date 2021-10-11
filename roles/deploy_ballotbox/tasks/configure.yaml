@@ -1,0 +1,14 @@
+---
+- name: Template config.py
+  ansible.builtin.template:
+    src: config.py.j2
+    dest: "{{ app_repository_directory }}/app/config.py"
+  vars:
+    ansible_become: no
+
+- name: Template secret_config.py
+  ansible.builin.template:
+    src: secret_config.py.j2
+    dest: "{{ app_repository_directory }}/app/secret_config.py"
+  vars:
+    ansible_become: no

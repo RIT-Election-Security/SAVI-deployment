@@ -1,0 +1,14 @@
+---
+- name: Template secret_config.py
+  ansible.builin.template:
+    src: secret_config.py.j2
+    dest: "{{ app_repository_directory }}/app/secret_config.py"
+  vars:
+    ansible_become: no
+
+- name: Copy over election manifest
+  ansible.builtin.copy:
+    src: "{{ election_manifest_path }}"
+    dest: "{{ app_repository_directory }}/app/data/manifest.json"
+  vars:
+    ansible_become: no

@@ -1,0 +1,9 @@
+---
+- name: Prerequisite setup
+  ansible.builtin.include_tasks: prereqs.yaml
+
+- name: Configure application
+  ansible.builtin.include_tasks: configure.yaml
+
+- name: Setup application as service
+  ansible.builtin.include_role: install_compose_application_as_service

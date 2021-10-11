@@ -1,0 +1,7 @@
+---
+- name: Template config.py
+  ansible.builtin.template:
+    src: config.py.j2
+    dest: "{{ app_repository_directory }}/app/config.py"
+  vars:
+    ansible_become: no
