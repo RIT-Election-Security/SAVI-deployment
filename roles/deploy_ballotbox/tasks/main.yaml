@@ -6,4 +6,5 @@
   ansible.builtin.include_tasks: configure.yaml
 
 - name: Setup application as service
-  ansible.builtin.include_role: install_compose_application_as_service
+  ansible.builtin.include_role:
+    name: install_compose_application_as_service

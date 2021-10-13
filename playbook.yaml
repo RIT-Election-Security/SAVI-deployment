@@ -1,25 +1,20 @@
 ---
-- name: Install docker on all hosts
-  hosts: all  
+- hosts: all
   roles:
     - install_docker
 
-- name: Deploy registrar application
-  hosts: registrar
+- hosts: registrar
   roles:
     - deploy_registrar
 
-- name: Deploy ballotbox application
-  hosts: ballotbox
+- hosts: ballotbox
   roles:
     - deploy_ballotbox
 
-- name: Deploy ballot server application
-  hosts: ballotserver
+- hosts: ballotserver
   roles:
     - deploy_ballotserver
 
-- name: Deploy result server application
-  hosts: resultserver
+- hosts: resultserver
   roles:
     - deploy_resultserver
