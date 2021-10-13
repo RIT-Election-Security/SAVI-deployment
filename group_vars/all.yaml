@@ -2,3 +2,11 @@
 ansible_user: "<admin-user>"
 ansible_password: "<admin-password>"
 ansible_become: yes
+
+facility_name: "<facility-name>"
+shared_key: "<shared-key>"
+
+ballot_box_address: "<ballot-box-address>"
+ballot_server_address: "<ballot-server-address>"
+registrar_address: "<registrar-address>"
+result_server_address: "<result-server-address>"

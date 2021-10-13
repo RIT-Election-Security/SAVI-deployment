@@ -1,0 +1,12 @@
+---
+install_docker_compose: no
+add_ansible_user_to_docker_group: no
+app_repository_url: https://github.com/RIT-Election-Security/SAVI-resultserver
+app_repository_directory: /etc/resultserver
+compose_service_name: resultserver
+compose_service_description: SAVI voting system result server application
+compose_service_directory: {{ app_repository_directory }}
+compose_service_enabled: yes
+use_compose_service_user: yes
+config_env_variables:
+  BALLOTSERVER_URL: "http://{{ ballot_server_address }}"

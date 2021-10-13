@@ -1,0 +1,15 @@
+---
+install_docker_compose: no
+add_ansible_user_to_docker_group: no
+app_repository_url: https://github.com/RIT-Election-Security/SAVI-ballotserver
+app_repository_directory: /etc/ballotserver
+compose_service_name: ballotserver
+compose_service_description: SAVI voting system ballot server application
+compose_service_directory: "{{ app_repository_directory }}"
+compose_service_enabled: yes
+use_compose_service_user: yes
+config_env_variables:
+  NUM_GUARDIANS:  4
+  QUORUM: 4
+  BALLOTSERVER_NAME: "{{ facility_name }}-ballotserver"
+  LAUNCH_CODE: "{{ 100000 | random(seed=launch_code_seed) }}"

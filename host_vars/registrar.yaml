@@ -1,0 +1,15 @@
+---
+install_docker_compose: no
+add_ansible_user_to_docker_group: no
+app_repository_url: https://github.com/RIT-Election-Security/SAVI-registrar
+app_repository_directory: /etc/registrar
+compose_service_name: registrar
+compose_service_description: SAVI voting system registrar application
+compose_service_directory: {{ app_repository_directory }}
+compose_service_enabled: yes
+use_compose_service_user: yes
+voter_registration_data_file_path:
+config_env_variables:
+  BALLOT_BOX_URL: "http://{{ ballot_box_address }}"
+  RESULTSERVER_URL: "http://{{ result_server_address }}"
+  SHARED_KEY: "{{ shared_key }}"
