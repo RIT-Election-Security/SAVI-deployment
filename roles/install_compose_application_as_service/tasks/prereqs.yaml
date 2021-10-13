@@ -1,6 +1,6 @@
 ---
 - name: Configure service to operate under user
-  when: {{ use_compose_service_user }}
+  when: use_compose_service_user
   block:
     - name: Create service user
       ansible.builtin.user:
@@ -10,6 +10,6 @@
 
     - name: Grant service user ownership of repository directory
       ansible.builtin.file:
-        recurse: yes
+        recurse: true
         owner: "{{ compose_service_name }}"
         group: "{{ compose_service_name }}"

@@ -1,7 +1,7 @@
 ---
 ansible_user: "<admin-user>"
 ansible_password: "<admin-password>"
-ansible_become: yes
+ansible_become: true
 
 facility_name: "<facility-name>"
 shared_key: "<shared-key>"

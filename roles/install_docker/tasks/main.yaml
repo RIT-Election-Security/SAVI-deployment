@@ -35,7 +35,7 @@
   ansible.builtin.user:
     user: "{{ ansible_user }}"
     groups: docker
-    append: yes
+    append: true
   when: add_ansible_user_to_docker_group
   register: ansible_user_added_to_docker_group
 
@@ -43,7 +43,7 @@
   ansible.builtin.user:
     user: "{{ item }}"
     groups: docker
-    append: yes
+    append: true
   loop: "{{ docker_group_users }}"
 
 - name: Refresh ansible connection to update groups for "{{ ansible_user }}"

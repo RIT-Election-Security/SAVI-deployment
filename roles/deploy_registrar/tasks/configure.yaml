@@ -4,19 +4,18 @@
     src: env_file.j2
     dest: "{{ app_repository_directory }}/docker/env_file"
   vars:
-    ansible_become: no
+    ansible_become: false
 
 - name: Ensure Data directory exists
   ansible.builtin.file:
     path: "{{ app_repository_directory }}/data"
     state: directory
   vars:
-    ansible_become: no
+    ansible_become: false
 
 - name: Copy over registrar voter data file
   ansible.builtin.copy:
     src: "{{ voter_registrarion_data_file_path }}"
     dest: "{{ app_repository_directory }}/data/voter_data.json"
   vars:
-    ansible_become: no
-  
+    ansible_become: false

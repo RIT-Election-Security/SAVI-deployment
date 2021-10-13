@@ -7,4 +7,4 @@
     repo: "{{ app_repository_url }}"
     dest: "{{ app_repository_directory }}"
   vars:
-    ansible_become: no
+    ansible_become: false

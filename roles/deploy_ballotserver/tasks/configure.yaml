@@ -4,11 +4,11 @@
     src: env_file.j2
     dest: "{{ app_repository_directory }}/docker/env_file"
   vars:
-    ansible_become: no
+    ansible_become: false
 
 - name: Copy over election manifest
   ansible.builtin.copy:
     src: "{{ election_manifest_path }}"
     dest: "{{ app_repository_directory }}/app/data/manifest.json"
   vars:
-    ansible_become: no
+    ansible_become: false

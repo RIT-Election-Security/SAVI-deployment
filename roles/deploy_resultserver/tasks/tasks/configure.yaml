@@ -4,4 +4,4 @@
     src: env_file.j2
     dest: "{{ app_repository_directory }}/docker/env_file"
   vars:
-    ansible_become: no
+    ansible_become: false
