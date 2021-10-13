@@ -1,8 +1,8 @@
 ---
-- name: Template secret_config.py
-  ansible.builin.template:
-    src: secret_config.py.j2
-    dest: "{{ app_repository_directory }}/app/secret_config.py"
+- name: Template env_file
+  ansible.builtin.template:
+    src: env_file.j2
+    dest: "{{ app_repository_directory }}/docker/env_file"
   vars:
     ansible_become: no
 

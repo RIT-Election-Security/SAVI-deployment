@@ -1,7 +1,7 @@
 ---
-- name: Template config.py
+- name: Template env_file
   ansible.builtin.template:
-    src: config.py.j2
-    dest: "{{ app_repository_directory }}/app/config.py"
+    src: env_file.j2
+    dest: "{{ app_repository_directory }}/docker/env_file"
   vars:
     ansible_become: no
