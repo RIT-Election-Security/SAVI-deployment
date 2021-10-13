@@ -2,14 +2,10 @@
 all:
   hosts:
     registrar:
-      vars:
-        ansible_host: "<registrar-ip>"
+      ansible_host: "<registrar-ip>"
     ballotbox:
-      vars:
-        ansible_host: "<ballotbox-ip>"
+      ansible_host: "<ballotbox-ip>"
     ballotserver:
-      vars:
-        ansible_host: "<ballotserver-ip>"
+      ansible_host: "<ballotserver-ip>"
     resultserver:
-      vars:
-        ansible_host: "<resultserver-ip>"
+      ansible_host: "<resultserver-ip>"
