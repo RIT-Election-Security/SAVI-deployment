@@ -13,4 +13,5 @@ config_env_variables:
   NUM_GUARDIANS: 4
   QUORUM: 4
   BALLOTSERVER_NAME: "{{ facility_name }}-ballotserver"
+secret_config_env_variables:
   LAUNCH_CODE: "{{ 100000 | random(seed=launch_code_seed) }}"

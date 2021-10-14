@@ -11,4 +11,5 @@ use_compose_service_user: true
 config_env_variables:
   REGISTRAR_URL: "http://{{ registrar_address }}"
   BALLOTSERVER_URL: "http://{{ ballot_server_address }}"
+secret_config_env_variables:
   SHARED_KEY: "{{ shared_key }}"

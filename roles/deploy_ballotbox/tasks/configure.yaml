@@ -3,3 +3,8 @@
   ansible.builtin.template:
     src: env_file.j2
     dest: "{{ app_repository_directory }}/docker/env_file"
+
+- name: Template secret_config.py
+  ansible.builtin.template:
+    src: config.py.j2
+    dest: "{{ app_repository_directory }}/app/secret_config.py"

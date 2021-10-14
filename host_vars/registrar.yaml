@@ -12,4 +12,5 @@ voter_registration_data_file_path:
 config_env_variables:
   BALLOT_BOX_URL: "http://{{ ballot_box_address }}"
   RESULTSERVER_URL: "http://{{ result_server_address }}"
+secret_config_env_variables:
   SHARED_KEY: "{{ shared_key }}"

@@ -1,0 +1,5 @@
+from os import environ
+
+{% for key in secret_config_env_variables %}
+{{ key }} = environ.get("{{ key }}")
+{% endfor %}
