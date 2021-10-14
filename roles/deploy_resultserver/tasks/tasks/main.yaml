@@ -2,6 +2,10 @@
 - name: Prerequisite setup
   ansible.builtin.include_tasks: prereqs.yaml
 
+- name: Install application
+  ansible.builtin.include_role:
+    name: install_application
+
 - name: Configure application
   ansible.builtin.include_tasks: configure.yaml
 
