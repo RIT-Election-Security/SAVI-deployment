@@ -4,6 +4,7 @@ ansible_password: "<admin-password>"
 ansible_become: true
 
 facility_name: "<facility-name>"
+launch_code_seed: "<launch-code-seed>"
 shared_key: "<shared-key>"
 
 ballot_box_address: "<ballot-box-address>"
