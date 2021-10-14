@@ -10,6 +10,7 @@
 
     - name: Grant service user ownership of repository directory
       ansible.builtin.file:
+        path: "{{ compose_service_directory }}"
         recurse: true
         owner: "{{ compose_service_name }}"
         group: "{{ compose_service_name }}"
