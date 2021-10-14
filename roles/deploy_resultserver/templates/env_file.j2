@@ -2,6 +2,3 @@
 {% for variable, value in config_env_variables.items() %}
 {{ variable }}="{{ value }}"
 {% endfor %}
-{% for variable, value in secret_config_env_variables.items() %}
-{{ variable }}="{{ value }}"
-{% endfor %}
