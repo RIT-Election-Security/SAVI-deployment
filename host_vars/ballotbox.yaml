@@ -1,6 +1,6 @@
 ---
-install_docker_compose: false
-add_ansible_user_to_docker_group: false
+install_docker_compose: true
+add_ansible_user_to_docker_group: true
 app_repository_url: https://github.com/RIT-Election-Security/SAVI-ballotbox
 app_repository_directory: /etc/ballotbox
 compose_service_name: ballotbox
