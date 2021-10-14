@@ -11,5 +11,5 @@
 
 - name: Copy over registrar voter data file
   ansible.builtin.copy:
-    src: "{{ voter_registrarion_data_file_path }}"
+    src: "{{ voter_registration_data_file_path }}"
     dest: "{{ app_repository_directory }}/data/voter_data.json"

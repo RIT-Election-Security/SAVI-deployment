@@ -6,5 +6,5 @@
 
 - name: Copy over election manifest
   ansible.builtin.copy:
-    src: "{{ election_manifest_path }}"
+    src: "{{ election_manifest_file_path }}"
     dest: "{{ app_repository_directory }}/app/data/manifest.json"
