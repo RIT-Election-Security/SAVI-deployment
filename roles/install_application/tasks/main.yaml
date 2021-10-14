@@ -6,5 +6,3 @@
   ansible.builtin.git:
     repo: "{{ app_repository_url }}"
     dest: "{{ app_repository_directory }}"
-  vars:
-    ansible_become: false
