@@ -24,5 +24,5 @@
     path: "{{ ca_directory }}/ca.crt"
     csr_content: "{{ ca_csr.csr }}"
     privatekey_path: "{{ ca_directory }}/ca.key"
-    privatekey_passphrase: "{{ secret_ca_passphrase }}"
+    privatekey_passphrase: "{{ ca_passphrase }}"
     provider: selfsigned
