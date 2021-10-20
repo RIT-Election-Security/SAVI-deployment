@@ -7,3 +7,4 @@
 
 - name: Create server certifcates
   ansible.builtin.include_tasks: create_server_certs.yaml
+  loop: "{{ certificate_inventory_hosts }}"

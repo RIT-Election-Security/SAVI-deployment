@@ -1,31 +1,27 @@
 ---
-- name: Create server certificate and key
-  block:
-    - name: Create server certificate directory
-      ansible.builtin.file:
-        path: "{{ ca_directory }}/{{ item }}"
-        state: directory  
+- name: Create server certificate directory
+  ansible.builtin.file:
+    path: "{{ ca_directory }}/{{ item }}"
+    state: directory  
 
-    - name: Create server key
-      community.crypto.openssl_privatekey:
-        path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
+- name: Create server key
+  community.crypto.openssl_privatekey:
+    path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
 
-    - name: Create server csr
-      community.crypto.openssl_csr_pipe:
-        privatekey_path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
-        subject_alt_name:
-          - "{{ hostvars.item.ansible_host }}"
-      register: csr
+- name: Create server csr
+  community.crypto.openssl_csr_pipe:
+    privatekey_path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
+    subject_alt_name:
+      - "{{ hostvars.item.ansible_host }}"
+  register: csr
 
-    - name: Create server cert
-      community.crypto.x509_certificate:
-        path: "{{ ca_directory }}/{{ item }}/{{ item }}.crt"
-        csr_content: "{{ csr.csr }}"
-        provider: ownca
-        ownca_path: "{{ ca_directory }}/ca.crt"
-        ownca_privatekey_path: "{{ ca_directory }}/ca.key"
-        ownca_privatekey_passphrase: "{{ ca_passprase }}"
-        ownca_not_after: "+365d"
-        ownca_not_before: "-1d"
-
-  loop: "{{ certificate_inventory_hosts }}"
+- name: Create server cert
+  community.crypto.x509_certificate:
+    path: "{{ ca_directory }}/{{ item }}/{{ item }}.crt"
+    csr_content: "{{ csr.csr }}"
+    provider: ownca
+    ownca_path: "{{ ca_directory }}/ca.crt"
+    ownca_privatekey_path: "{{ ca_directory }}/ca.key"
+    ownca_privatekey_passphrase: "{{ ca_passprase }}"
+    ownca_not_after: "+365d"
+    ownca_not_before: "-1d"
