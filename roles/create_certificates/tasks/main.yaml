@@ -1,0 +1,9 @@
+---
+- name: Perform prerequisite tasks
+  ansible.builtin.include_tasks: prereqs.yaml
+
+- name: Create certificate authority
+  ansible.builtin.include_tasks: create_ca.yaml
+
+- name: Create server certifcates
+  ansible.builtin.include_tasks: create_server_certs.yaml

@@ -1,0 +1,27 @@
+---
+- name: Create CA key
+  community.crypto.openssl_privatekey:
+    path: "{{ ca_directory }}/ca.key"
+    passphrase: "{{ ca_passphrase }}"
+
+- name: Create CA root cert CSR
+  community.crypto.openssl_csr_pipe:
+    privatekey_path: "{{ ca_directory }}/ca.key"
+    privatekey_passphrase: "{{ ca_passphrase }}"
+    common_name: Election CA
+    use_common_name_for_san: false
+    basic_constraints:
+      - 'CA:TRUE'
+    basic_constraints_critical: yes
+    key_usage:
+      - keyCertSign
+    key_usage_critical: true
+  register: ca_csr
+
+- name: Create CA root cert
+  community.crypto.x509_certificate:
+    path: "{{ ca_directory }}/ca.crt"
+    csr_content: "{{ ca_csr.csr }}"
+    privatekey_path: "{{ ca_directory }}/ca.key"
+    privatekey_passphrase: "{{ secret_ca_passphrase }}"
+    provider: selfsigned

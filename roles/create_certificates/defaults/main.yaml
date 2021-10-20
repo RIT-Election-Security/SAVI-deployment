@@ -1,0 +1,7 @@
+---
+ca_directory: "{{ playbook_dir }}/certificates"
+ca_passphrase:
+certificate_inventory_hosts:
+  - registrar
+  - ballotbox
+  - resultserver

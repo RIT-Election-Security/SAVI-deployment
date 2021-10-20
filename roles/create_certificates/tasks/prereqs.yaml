@@ -1,0 +1,9 @@
+---
+- name: Create certificate authority directory
+  ansible.builtin.file:
+    path: "{{ ca_directory }}"
+    state: directory
+
+- name: Make sure cryptography module is installed
+  ansible.builtin.pip:
+    name: cryptography
