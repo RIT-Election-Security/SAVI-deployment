@@ -22,6 +22,6 @@
     provider: ownca
     ownca_path: "{{ ca_directory }}/ca.crt"
     ownca_privatekey_path: "{{ ca_directory }}/ca.key"
-    ownca_privatekey_passphrase: "{{ ca_passprase }}"
+    ownca_privatekey_passphrase: "{{ ca_passphrase }}"
     ownca_not_after: "+365d"
     ownca_not_before: "-1d"
