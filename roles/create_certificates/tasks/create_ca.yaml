@@ -3,6 +3,7 @@
   community.crypto.openssl_privatekey:
     path: "{{ ca_directory }}/ca.key"
     passphrase: "{{ ca_passphrase }}"
+    cipher: auto
 
 - name: Create CA root cert CSR
   community.crypto.openssl_csr_pipe:
