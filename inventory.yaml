@@ -1,11 +1,18 @@
 ---
 all:
+  children:
+    servers:
+      hosts:
+        registrar:
+          ansible_host: "<registrar-ip>"
+        ballotbox:
+          ansible_host: "<ballotbox-ip>"
+        ballotserver:
+          ansible_host: "<ballotserver-ip>"
+        resultserver:
+          ansible_host: "<resultserver-ip>"
   hosts:
-    registrar:
-      ansible_host: "<registrar-ip>"
-    ballotbox:
-      ansible_host: "<ballotbox-ip>"
-    ballotserver:
-      ansible_host: "<ballotserver-ip>"
-    resultserver:
-      ansible_host: "<resultserver-ip>"
+    ansibleserver:
+      ansible_become: false
+      ansible_connection: local
+      ansible_host: localhost

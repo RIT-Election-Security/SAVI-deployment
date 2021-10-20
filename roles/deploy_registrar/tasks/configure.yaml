@@ -18,3 +18,13 @@
   ansible.builtin.copy:
     src: "{{ voter_registration_data_file_path }}"
     dest: "{{ app_repository_directory }}/data/voter_data.json"
+
+- name: Copy over private key
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/registrar/registrar.key"  
+    dest: "{{ app_repository_directory }}/docker/server.key"
+
+- name: Copy over certificate
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/registrar/registrar.crt"
+    dest: "{{ app_repository_directory }}/docker/server.crt"

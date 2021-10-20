@@ -1,2 +1,3 @@
 ---
 config_env_variables:
+ca_directory: "{{ playbook_dir }}/certificates"

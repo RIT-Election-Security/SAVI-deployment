@@ -8,3 +8,18 @@
   ansible.builtin.template:
     src: config.py.j2
     dest: "{{ app_repository_directory }}/app/secret_config.py"
+
+- name: Copy over private key
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/ballotbox/ballotbox.key"  
+    dest: "{{ app_repository_directory }}/docker/server.key"
+
+- name: Copy over certificate
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/ballotbox/ballotbox.crt"
+    dest: "{{ app_repository_directory }}/docker/server.crt"
+
+- name: Copy over CA certificate
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/ca.crt"
+    dest: "{{ app_repository_directory }}/ca.crt"

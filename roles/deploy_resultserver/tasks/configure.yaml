@@ -3,3 +3,13 @@
   ansible.builtin.template:
     src: env_file.j2
     dest: "{{ app_repository_directory }}/docker/env_file"
+
+- name: Copy over private key
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/resultserver/resultserver.key"  
+    dest: "{{ app_repository_directory }}/docker/server.key"
+
+- name: Copy over certificate
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/resultserver/resultserver.crt"
+    dest: "{{ app_repository_directory }}/docker/server.crt"

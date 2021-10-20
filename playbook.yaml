@@ -1,5 +1,9 @@
 ---
-- hosts: all
+- hosts: ansibleserver
+  roles:
+    - create_certificates
+
+- hosts: servers
   roles:
     - install_docker
 
