@@ -1,23 +1,23 @@
 ---
 - name: Create server certificate directory
   ansible.builtin.file:
-    path: "{{ ca_directory }}/{{ item }}"
+    path: "{{ ca_directory }}/{{ name }}"
     state: directory  
 
 - name: Create server key
   community.crypto.openssl_privatekey:
-    path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
+    path: "{{ ca_directory }}/{{ name }}/{{ name }}.key"
 
 - name: Create server csr
   community.crypto.openssl_csr_pipe:
-    privatekey_path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
+    privatekey_path: "{{ ca_directory }}/{{ name }}/{{ name }}.key"
     subject_alt_name:
-      - "{{ hostvars.item.ansible_host }}"
+      - "{{ hostvars.name.ansible_host }}"
   register: csr
 
 - name: Create server cert
   community.crypto.x509_certificate:
-    path: "{{ ca_directory }}/{{ item }}/{{ item }}.crt"
+    path: "{{ ca_directory }}/{{ name }}/{{ name }}.crt"
     csr_content: "{{ csr.csr }}"
     provider: ownca
     ownca_path: "{{ ca_directory }}/ca.crt"
