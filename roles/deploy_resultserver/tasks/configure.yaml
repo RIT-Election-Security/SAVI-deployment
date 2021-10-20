@@ -13,3 +13,8 @@
   ansible.builtin.copy:
     src: "{{ ca_directory }}/resultserver/resultserver.crt"
     dest: "{{ app_repository_directory }}/docker/server.crt"
+
+- name: Copy over CA certificate
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/ca.crt"
+    dest: "{{ app_repository_directory }}/ca.crt"
