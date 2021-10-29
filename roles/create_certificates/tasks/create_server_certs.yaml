@@ -13,7 +13,7 @@
     privatekey_path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
     common_name: "{{ hostvars[item].ansible_host }}"
     subject_alt_name:
-      - "DNS:{{ hostvars[item].ansible_host }}"
+      - "IP Address:{{ hostvars[item].ansible_host }}"
   register: csr
 
 - name: Create server cert
