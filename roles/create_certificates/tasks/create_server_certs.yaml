@@ -11,6 +11,7 @@
 - name: Create server csr
   community.crypto.openssl_csr_pipe:
     privatekey_path: "{{ ca_directory }}/{{ item }}/{{ item }}.key"
+    common_name: "{{ hostvars[item].ansible_host }}"
     subject_alt_name:
       - "DNS:{{ hostvars[item].ansible_host }}"
   register: csr
