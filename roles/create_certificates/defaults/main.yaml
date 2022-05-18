@@ -5,3 +5,4 @@ certificate_inventory_hosts:
   - registrar
   - ballotbox
   - resultserver
+  - ballotserver

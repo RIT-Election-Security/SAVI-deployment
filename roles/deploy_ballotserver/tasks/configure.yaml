@@ -13,3 +13,18 @@
   ansible.builtin.copy:
     src: "{{ election_manifest_file_path }}"
     dest: "{{ app_repository_directory }}/app/data/manifest.json"
+
+- name: Copy over private key
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/ballotserver/ballotserver.key"
+    dest: "{{ app_repository_directory }}/docker/server.key"
+
+- name: Copy over certificate
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/ballotserver/ballotserver.crt"
+    dest: "{{ app_repository_directory }}/docker/server.crt"
+
+- name: Copy over CA certificate
+  ansible.builtin.copy:
+    src: "{{ ca_directory }}/ca.crt"
+    dest: "{{ app_repository_directory }}/docker/ca.crt"
