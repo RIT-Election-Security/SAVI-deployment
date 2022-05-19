@@ -10,7 +10,7 @@ compose_service_enabled: true
 use_compose_service_user: true
 config_env_variables:
   REGISTRAR_URL: "https://{{ registrar_address }}"
-  BALLOTSERVER_URL: "http://{{ ballot_server_address }}"
+  BALLOTSERVER_URL: "https://{{ ballot_server_address }}"
   ALLOW_ORIGIN: "https://{{ ballot_box_address }}"
 secret_config_env_variables:
   SHARED_KEY: "{{ shared_key }}"
