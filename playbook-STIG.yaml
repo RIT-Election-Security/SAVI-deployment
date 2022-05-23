@@ -1,0 +1,6 @@
+---
+- hosts:
+    - servers
+    - ansibleserver
+  roles:
+    - ubuntu1804STIG

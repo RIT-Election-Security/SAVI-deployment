@@ -6,4 +6,4 @@
   ansible.builtin.git:
     repo: "{{ app_repository_url }}"
     dest: "{{ app_repository_directory }}"
-    update: false
+    update: true
