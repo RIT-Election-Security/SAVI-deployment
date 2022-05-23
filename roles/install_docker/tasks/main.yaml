@@ -46,5 +46,20 @@
     append: true
   loop: "{{ docker_group_users }}"
 
+- name: Enable docker user remapping
+  ansible.builtin.copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+  when: enable_user_remapping
+
+- name: Restart docker and containerd services
+  ansible.builtin.systemd:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - docker
+    - containerd
+  when: enable_user_remapping
+
 - name: Refresh ansible connection to update groups for "{{ ansible_user }}"
   ansible.builtin.meta: reset_connection

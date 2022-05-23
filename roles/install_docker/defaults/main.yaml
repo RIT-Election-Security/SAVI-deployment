@@ -2,3 +2,4 @@
 install_docker_compose: false
 add_ansible_user_to_docker_group: false
 docker_group_users: []
+enable_user_remapping: true
